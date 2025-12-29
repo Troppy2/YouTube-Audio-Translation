@@ -1,24 +1,24 @@
-const languageMap = {  // Fixed typo: langaugeMap -> languageMap
+const languageMap = {  
     'English': 'en',
     'Spanish': 'es',
     'French': 'fr',
     'German': 'de',
     'Chinese': 'zh-cn',
-    'Yoruba': 'yo',  // Fixed capitalization
+    'Yoruba': 'yo',  
     'Krio': 'kri'
 }
 
-let selectedLanguage = 'en';  // Fixed typo: selectedLangauge -> selectedLanguage
+let selectedLanguage = 'en';  
 let videoLoaded = false;
 
 //translation button
-document.getElementById("load_video_btn").onclick = async function () {  // Fixed typo: conclick -> onclick
+document.getElementById("load_video_btn").onclick = async function () {  /
     const button = this;
-    const urlInput = document.getElementById("user_website_enter_form").value;  // Added .value
+    const urlInput = document.getElementById("user_website_enter_form").value;  
     
     //to check if it has a valid url input
     //Error handling
-    if (!urlInput.includes("youtube.com") && !urlInput.includes("youtu.be")) {  // Fixed typo: include -> includes
+    if (!urlInput.includes("youtube.com") && !urlInput.includes("youtu.be")) {  
         alert("Please enter a valid YouTube URL.");
         return;
     }
@@ -26,7 +26,7 @@ document.getElementById("load_video_btn").onclick = async function () {  // Fixe
     if (!videoLoaded) {  // check if vid is loaded
         let embedUrl = urlInput;
         if (urlInput.includes("watch?v=")) {  // Added if statement
-            embedUrl = urlInput.replace("watch?v=", "embed/");  // Fixed: replaceChild -> replace
+            embedUrl = urlInput.replace("watch?v=", "embed/"); 
         } else if (urlInput.includes("youtu.be/")) {
             embedUrl = "https://www.youtube.com/embed/" + urlInput.split("youtu.be/")[1];
         }
@@ -46,7 +46,7 @@ document.getElementById("load_video_btn").onclick = async function () {  // Fixe
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 url: urlInput,
-                language: selectedLanguage  // Fixed: = -> : and selectedLangauge -> selectedLanguage
+                language: selectedLanguage  
             }),
         });
         
@@ -57,7 +57,7 @@ document.getElementById("load_video_btn").onclick = async function () {  // Fixe
             const a = document.createElement('a');
             a.href = downloadUrl;
             a.download = 'translated_audio.mp3';
-            document.body.appendChild(a);  // Added this line - important!
+            document.body.appendChild(a);  
             a.click();
             a.remove();
             
@@ -82,4 +82,5 @@ function show_language(event) {
     document.getElementById('dropdownMenuButton1').textContent = languageName;
     // Store the language code
     selectedLanguage = languageMap[languageName] || 'es';
+
 }
