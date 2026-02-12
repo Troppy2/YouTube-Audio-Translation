@@ -1,7 +1,7 @@
 # YouTube Audio Translator
 
 ## Overview
-
+(This project is riddled with bugs so it does not work)
 **YouTube Audio Translator** is a web-based application designed to reduce language barriers when consuming YouTube content. The project aims to translate spoken audio from YouTube videos into a target language, enabling users to understand valuable information that would otherwise be inaccessible due to language differences.
 
 This project was developed as a personal learning initiative in full-stack web development, API integration, and backend system design. While the application is not fully complete, it represents a significant hands-on exploration of real-world engineering challenges.
